@@ -77,7 +77,7 @@ dependencies {
     //Retrofit
     implementation (libs.retrofit)
     implementation (libs.converter.gson)
-    implementation (libs.converter.kotlinx.serialization)
+    
 
     //Room
     implementation(libs.androidx.room.ktx)
@@ -99,5 +99,5 @@ dependencies {
     //Kotlin Extensions and Coroutines support for room
     implementation("androidx.room:room-ktx:2.6.1")
 
-
+implementation("androidx.fragment:fragment:1.8.4")
 }

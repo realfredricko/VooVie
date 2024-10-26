@@ -1,6 +1,9 @@
 package com.example.voovie.screens
 
+import android.content.Intent
 import android.graphics.drawable.Icon
+import android.speech.RecognizerIntent
+import android.speech.SpeechRecognizer
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -24,7 +27,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun Voovie() {
+fun Voovie(
+    voovieViewModel: VoovieViewModel,
+    speechRecognizer: SpeechRecognizer,speechRecognizerIntent: Intent
+) {
 //    var query by remember { mutableStateOf(TextFieldValue("")) }
 //    val scope = rememberCoroutineScope()
 
@@ -38,7 +44,9 @@ fun Voovie() {
 
         Spacer(modifier = Modifier.height(16.dp))
 IconButton(onClick = {
-
+speechRecognizer.startListening(
+    speechRecognizerIntent
+)
 },
     modifier = Modifier
         .size(30.dp),
@@ -83,10 +91,5 @@ size(30.dp))
 //            VoovieList(movies = viewModel.movies)
 //        }
     }
-}
-@Preview
-@Composable
-fun VooviePreview(){
-  Voovie()
 }
 
