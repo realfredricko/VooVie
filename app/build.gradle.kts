@@ -81,23 +81,30 @@ dependencies {
 
     //Room
     implementation(libs.androidx.room.ktx)
+    ksp("androidx.room:room-compiler:2.6.1")
+    implementation("androidx.room:room-runtime:2.6.1")
     //dagger-hilt
-    implementation("com.google.dagger:hilt-android:2.51.1")
+    implementation(libs.hilt.android)
     ksp(libs.hilt.android.compiler)
 //Extra libraries
-    implementation("androidx.compose.foundation:foundation-android:1.6.7")
-    implementation("androidx.compose.material:material-icons-extended:1.6.7")
+    implementation(libs.androidx.foundation.android)
+    implementation(libs.androidx.material.icons.extended)
 // Kotlin Serialization
-    implementation ("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.2")
+    implementation (libs.kotlinx.serialization.json)
 // OkHttp (for network operations)
-    implementation ("com.squareup.okhttp3:okhttp:4.9.1")
-    implementation ("com.squareup.okhttp3:logging-interceptor:4.9.1")
+    implementation (libs.okhttp.v491)
+    implementation (libs.logging.interceptor)
 // ExoPlayer for video playback
     implementation("androidx.media3:media3-exoplayer:1.4.1")
     implementation("androidx.media3:media3-exoplayer-dash:1.4.1")
     implementation("androidx.media3:media3-ui:1.4.1")
     //Kotlin Extensions and Coroutines support for room
-    implementation("androidx.room:room-ktx:2.6.1")
 
-implementation("androidx.fragment:fragment:1.8.4")
+implementation(libs.androidx.fragment)
+    implementation(libs.coil.compose)
+    implementation(libs.coil.network.okhttp)
+    //Navigation
+    implementation("androidx.navigation:navigation-compose:2.7.7")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
+    implementation("androidx.hilt:hilt-navigation:1.2.0")
 }

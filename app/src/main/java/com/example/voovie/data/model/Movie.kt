@@ -1,7 +1,8 @@
 package com.example.voovie.data.model
 
+import androidx.room.Entity
 import com.google.gson.annotations.SerializedName
-
+@Entity(tableName = "movies")
 data class Movie(
     val backdropPath: String,
     @SerializedName("genres")
