@@ -9,9 +9,8 @@ import com.example.voovie.data.model.Movie
 
 @Database(entities = [Movie::class], version = 1,
     exportSchema = false)
-class VoovieDatabase {
     abstract  class VoovieDatabase: RoomDatabase(){
-        abstract fun voovieDao():VoovieDao
+        abstract fun getVoovieDao():VoovieDao
         companion object{
             private const val DATABASE_NAME = "voovie.db"
             /**
@@ -20,7 +19,7 @@ class VoovieDatabase {
              **/
             @Volatile
             private  var INSTANCE:VoovieDatabase? = null
-            fun getDatabase(context: Context):VoovieDatabase{
+            fun getInstance(context: Context):VoovieDatabase{
                return INSTANCE ?: synchronized(this) {
                    val instance = Room.databaseBuilder(
                        context.applicationContext,
@@ -33,4 +32,3 @@ class VoovieDatabase {
             }
         }
     }
-}
