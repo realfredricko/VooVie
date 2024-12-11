@@ -5,6 +5,7 @@ import androidx.room.Room
 import com.example.voovie.data.local.VoovieDatabase
 import com.example.voovie.data.local.daos.VoovieDao
 import com.example.voovie.data.network.VoovieService
+import com.example.voovie.data.repository.VoovieRepository
 import dagger.Provides
 import dagger.hilt.android.qualifiers.ApplicationContext
 import retrofit2.Retrofit
@@ -44,4 +45,10 @@ object AppModule {
     }
     @Provides
     fun provideVoovieDao(db: VoovieDatabase): VoovieDao = db.getVoovieDao()
+    @Provides
+    @Singleton
+    fun provideRepository(voovieDao:VoovieDao,
+                          voovieService: VoovieService): VoovieRepository {
+        return VoovieRepository(voovieService,voovieDao)
+    }
     }

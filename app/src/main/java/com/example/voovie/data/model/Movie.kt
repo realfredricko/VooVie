@@ -1,6 +1,7 @@
 package com.example.voovie.data.model
 
 import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 @Entity(tableName = "movies")
 data class Movie(
@@ -8,6 +9,7 @@ data class Movie(
     @SerializedName("genres")
     val genres: List<Genre>,
     @SerializedName("id")
+    @PrimaryKey
     val id: Int,
     @SerializedName("original_language")
     val originalLanguage: String,

@@ -14,7 +14,7 @@ interface VoovieDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertMovies(movies: List<Movie>)
     @Query("SELECT * FROM movies")
-    fun getAllMovies(): Flow<List<Movie>>
+    fun getMovies(): Flow<List<Movie>>
     @Query("SELECT * FROM movies WHERE id =:movieId")
     suspend fun getMovieById(movieId:Int):Movie?
     @Query("DELETE FROM movies")

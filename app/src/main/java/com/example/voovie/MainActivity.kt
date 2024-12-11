@@ -25,26 +25,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        //Request RECORD_AUDIO permission
-        val requestPermissionLauncher = registerForActivityResult(
-            ActivityResultContracts.RequestPermission()
-        ){
-                    isGranted ->
-                if(!isGranted){
-//Success
-                    Log.d("RPM","Success")
-                }
-            }
-                 requestPermissionLauncher.launch(
-                     Manifest.permission.RECORD_AUDIO
-                 )
-//Speech Recognizer initialization
-        speechRecognizer = SpeechRecognizer.createSpeechRecognizer(this)
-        val speechRecognizerIntent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH).apply {
-            putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
-                RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
-            putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault())
-        }
+
         setContent {
             VooVieTheme {
               
